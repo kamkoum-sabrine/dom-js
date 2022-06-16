@@ -6,7 +6,7 @@
 <body>
     <div class="container">
         <div>
-            <br><br>
+            <br>
         </div>
         <table>
             <tr>
@@ -15,25 +15,32 @@
                         <div class="card-header">Minutes</div>
                         <div class="card-body text-dark">
                          
-                          <label class="radio" for="everyMinute"><input id="everyMinute" type="radio" checked="checked" value="*" name="minutes">
+                          <label class="radio" for="everyMinute">
+                              <input id="everyMinute" type="radio" checked="checked" value="*" name="minutes" onchange="getMinutes(id)">
                             Every Minute</label><br>
-                            <label class="radio" for="everyEvenMinute"><input id="everyEvenMinute" type="radio" value="*/2" name="minutes">
+                            <label class="radio" for="everyEvenMinute">
+                                <input id="everyEvenMinute" type="radio" value="*/2" name="minutes" onchange="getMinutes(id)">
                             Even Minutes</label><br>
-                            <label class="radio" for="everyOddMinute"><input id="everyOddMinute" type="radio" value="1-59/2" name="minutes">
+                            <label class="radio" for="everyOddMinute">
+                                <input id="everyOddMinute" type="radio" value="1-59/2" name="minutes" onchange="getMinutes(id)">
                             Odd Minutes</label><br>
-                            <label class="radio" for="every5Minute"><input id="every5Minute" type="radio" value="*/5" name="minutes">
+                            <label class="radio" for="every5Minute">
+                                <input id="every5Minute" type="radio" value="*/5" name="minutes" onchange="getMinutes(id)">
                             Every 5 Minutes</label><br>
-                            <label class="radio" for="every15Minute"><input id="every15Minute" type="radio" value="*/15" name="minutes">
+                            <label class="radio" for="every15Minute">
+                                <input id="every15Minute" type="radio" value="*/15" name="minutes" onchange="getMinutes(id)">
                             Every 15 Minutes</label><br>
-                            <label class="radio" for="every30Minute"><input id="every30Minute" type="radio" value="*/30" name="minutes">
+                            <label class="radio" for="every30Minute">
+                                <input id="every30Minute" type="radio" value="*/30" name="minutes" onchange="getMinutes(id)">
                             Every 30 Minutes</label><br>
                             <table>
                             <tr>
                                 <td>
-                                    <input type="radio" value="select" name="minutes">
+                                    Other:
+                                    <!-- <input type="radio" value="select" id="other" name="minutes" onchange="minutes(id)"> -->
                                 </td>
                                 <td>
-                                    <select multiple size="10" name="selectMinutes[]">
+                                    <select multiple size="10" id="select" name="selectMinutes[]" onchange="otherMinutes(id)">
                                     <option value="0">0</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -108,47 +115,48 @@
                     <div class="card-header">Hours</div>
                     <div class="card-body text-dark">
                      
-                      <label class="radio" for="everyHour"><input id="everyHour" type="radio" checked="checked" value="*" name="hours">
+                      <label class="radio" for="everyHour"><input id="everyHour" type="radio" checked="checked" value="*" name="hours" onchange="getHours(id)">
                         Every Hour</label><br>
-                        <label class="radio" for="everyEvenHour"><input id="everyEvenHour" type="radio" value="*/2" name="hours">
+                        <label class="radio" for="everyEvenHour"><input id="everyEvenHour" type="radio" value="*/2" name="hours" onchange="getHours(id)">
                         Even Hours</label><br>
-                        <label class="radio" for="everyOddHour"><input id="everyOddHour" type="radio" value="1-23/2" name="hours">
+                        <label class="radio" for="everyOddHour"><input id="everyOddHour" type="radio" value="1-23/2" name="hours" onchange="getHours(id)">
                         Odd Hours</label><br>
-                        <label class="radio" for="every6Hours"><input id="every6Hours" type="radio" value="*/6" name="hours">
+                        <label class="radio" for="every6Hours"><input id="every6Hours" type="radio" value="*/6" name="hours" onchange="getHours(id)"> 
                         Every 6 Hours</label><br>
-                        <label class="radio" for="every12Hours"><input id="every12Hours" type="radio" value="*/12" name="hours">
+                        <label class="radio" for="every12Hours"><input id="every12Hours" type="radio" value="*/12" name="hours" onchange="getHours(id)">
                         Every 12 Hours</label><br>
                         <table>
                         <tr>
                             <td>
-                                <input type="radio" value="select" name="minutes">
+                                <!-- <input type="radio" value="select" name="minutes"> -->
+                                Other:
                             </td>
                             <td>
-                                <select multiple size="10" name="selectHours[]">
-                                    <option value="0">Midnight</option>
-                                    <option value="1">1am</option>
-                                    <option value="2">2am</option>
-                                    <option value="3">3am</option>
-                                    <option value="4">4am</option>
-                                    <option value="5">5am</option>
-                                    <option value="6">6am</option>
-                                    <option value="7">7am</option>
-                                    <option value="8">8am</option>
-                                    <option value="9">9am</option>
-                                    <option value="10">10am</option>
-                                    <option value="11">11am</option>
-                                    <option value="12">Noon</option>
-                                    <option value="13">1pm</option>
-                                    <option value="14">2pm</option>
-                                    <option value="15">3pm</option>
-                                    <option value="16">4pm</option>
-                                    <option value="17">5pm</option>
-                                    <option value="18">6pm</option>
-                                    <option value="19">7pm</option>
-                                    <option value="20">8pm</option>
-                                    <option value="21">9pm</option>
-                                    <option value="22">10pm</option>
-                                    <option value="23">11pm</option>
+                                <select multiple size="10" id="hours" name="selectHours[]" onchange="otherHours(id)">
+                                    <option value="Midnight">Midnight</option>
+                                    <option value="1am">1am</option>
+                                    <option value="2am">2am</option>
+                                    <option value="3am">3am</option>
+                                    <option value="4am">4am</option>
+                                    <option value="5am">5am</option>
+                                    <option value="6am">6am</option>
+                                    <option value="7am">7am</option>
+                                    <option value="8am">8am</option>
+                                    <option value="9am">9am</option>
+                                    <option value="10am">10am</option>
+                                    <option value="11am">11am</option>
+                                    <option value="12am">Noon</option>
+                                    <option value="13am">1pm</option>
+                                    <option value="14am">2pm</option>
+                                    <option value="15am">3pm</option>
+                                    <option value="16am">4pm</option>
+                                    <option value="5pm">5pm</option>
+                                    <option value="6pm">6pm</option>
+                                    <option value="7pm">7pm</option>
+                                    <option value="8pm">8pm</option>
+                                    <option value="9pm">9pm</option>
+                                    <option value="10pm">10pm</option>
+                                    <option value="11pm">11pm</option>
                                     </select>
                             </td>
                         </tr>
@@ -163,49 +171,57 @@
                     <div class="card-header">Days of Month</div>
                     <div class="card-body text-dark">
                      
-                        <label class="radio" for="everyday"><input id="everyday" type="radio" checked="checked" value="*" name="days">
+                        <label class="radio" for="everyday"><input id="everyday" type="radio" checked="checked" value="*" name="days" onchange="getDayMonth(id)">
                             Every Day</label><br>
-                              <label class="radio" for="everyEvenDay"><input id="everyEvenDay" type="radio" value="2-31/2" name="days">
+                              <label class="radio" for="everyEvenDay"><input id="everyEvenDay" type="radio" value="2-31/2" name="days" onchange="getDayMonth(id)">
                             Even Days</label><br>
-                              <label class="radio" for="everyOddDay"><input id="everyOddDay" type="radio" value="1-31/2" name="days">
+                              <label class="radio" for="everyOddDay"><input id="everyOddDay" type="radio" value="1-31/2" name="days" onchange="getDayMonth(id)">
                             Odd Days</label><br>
-                            <label class="radio" for="every5Days"><input id="every5Days" type="radio" value="*/5" name="days">
+                            <label class="radio" for="every5Days"><input id="every5Days" type="radio" value="*/5" name="days" onchange="getDayMonth(id)">
                             Every 5 Days</label><br>
-                            <label class="radio" for="every10Days"><input id="every10Days" type="radio" value="*/10" name="days">
+                            <label class="radio" for="every10Days"><input id="every10Days" type="radio" value="*/10" name="days" onchange="getDayMonth(id)">
                             Every 10 Days</label><br>
-                              <label class="radio" for="every15Days"><input id="every15Days" type="radio" value="*/15" name="days">
+                              <label class="radio" for="every15Days"><input id="every15Days" type="radio" value="*/15" name="days" onchange="getDayMonth(id)">
                             Every Half Month</label><br>
                             <table>
                         <tr>
                             <td>
-                                <input type="radio" value="select" name="minutes">
+                                Other:
+                                <!-- <input type="radio" value="select" name="minutes"> -->
                             </td>
                             <td>
-                                <select multiple size="10" name="selectHours[]">
-                                    <option value="0">Midnight</option>
-                                    <option value="1">1am</option>
-                                    <option value="2">2am</option>
-                                    <option value="3">3am</option>
-                                    <option value="4">4am</option>
-                                    <option value="5">5am</option>
-                                    <option value="6">6am</option>
-                                    <option value="7">7am</option>
-                                    <option value="8">8am</option>
-                                    <option value="9">9am</option>
-                                    <option value="10">10am</option>
-                                    <option value="11">11am</option>
-                                    <option value="12">Noon</option>
-                                    <option value="13">1pm</option>
-                                    <option value="14">2pm</option>
-                                    <option value="15">3pm</option>
-                                    <option value="16">4pm</option>
-                                    <option value="17">5pm</option>
-                                    <option value="18">6pm</option>
-                                    <option value="19">7pm</option>
-                                    <option value="20">8pm</option>
-                                    <option value="21">9pm</option>
-                                    <option value="22">10pm</option>
-                                    <option value="23">11pm</option>
+                                <select multiple size="10" id="dayMonth" name="selectDays[]"  onchange="otherDayMonth(id)" >
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
                                     </select>
                             </td>
                         </tr>
@@ -221,35 +237,36 @@
                     <div class="card-header">Months</div>
                     <div class="card-body text-dark">
                      
-                        <label class="radio" for="everyMonth"><input id="everyMonth" type="radio" checked="checked" value="*" name="months">
+                        <label class="radio" for="everyMonth"><input id="everyMonth" type="radio" checked="checked" value="*" name="months" onchange="getMonth(id)">
                             Every Month</label><br>
-                            <label class="radio" for="everyEvenMonths"><input id="everyEvenMonths" type="radio" value="*/2" name="months">
+                            <label class="radio" for="everyEvenMonths"><input id="everyEvenMonths" type="radio" value="*/2" name="months" onchange="getMonth(id)">
                             Even Months</label><br>
-                            <label class="radio" for="everyOddMonths"><input id="everyOddMonths" type="radio" value="1-11/2" name="months">
+                            <label class="radio" for="everyOddMonths"><input id="everyOddMonths" type="radio" value="1-11/2" name="months" onchange="getMonth(id)">
                             Odd Months</label><br>
-                            <label class="radio" for="every4Months"><input id="every4Months" type="radio" value="*/4" name="months">
+                            <label class="radio" for="every4Months"><input id="every4Months" type="radio" value="*/4" name="months" onchange="getMonth(id)">
                             Every 4 Months</label><br>
-                            <label class="radio" for="every6Months"><input id="every6Months" type="radio" value="*/6" name="months">
+                            <label class="radio" for="every6Months"><input id="every6Months" type="radio" value="*/6" name="months" onchange="getMonth(id)">
                             Every Half Year</label><br>
                             <table>
                         <tr>
                             <td>
-                                <input type="radio" value="select" name="minutes">
+                                <!-- <input type="radio" value="select" name="minutes"> -->
+                                Other:
                             </td>
                             <td>
-                                <select multiple size="10" name="selectMonths[]" class="cron">
-                                    <option value="1">Jan</option>
-                                    <option value="2">Feb</option>
-                                    <option value="3">Mar</option>
-                                    <option value="4">Apr</option>
-                                    <option value="5">May</option>
-                                    <option value="6">Jun</option>
-                                    <option value="7">Jul</option>
-                                    <option value="8">Aug</option>
-                                    <option value="9">Sep</option>
-                                    <option value="10">Oct</option>
-                                    <option value="11">Nov</option>
-                                    <option value="12">Dec</option>
+                                <select multiple size="10" name="selectMonths[]" id="month" class="cron" onchange="otherMonth(id)">
+                                    <option value="Jan">Jan</option>
+                                    <option value="Feb">Feb</option>
+                                    <option value="Mar">Mar</option>
+                                    <option value="Apr">Apr</option>
+                                    <option value="May">May</option>
+                                    <option value="Jun">Jun</option>
+                                    <option value="Jul">Jul</option>
+                                    <option value="Aug">Aug</option>
+                                    <option value="Sep">Sep</option>
+                                    <option value="Oct">Oct</option>
+                                    <option value="Nov">Nov</option>
+                                    <option value="Dec">Dec</option>
                                     </select>
                             </td>
                         </tr>
@@ -266,19 +283,20 @@
                     <div class="card-header">Days of Week</div>
                     <div class="card-body text-dark">
                      
-                        <label class="radio" for="everyWeekday"><input id="everyWeekday" name="weekdays" value="*" checked="checked" type="radio">
+                        <label class="radio" for="everyWeekday"><input id="everyWeekday" name="weekdays" value="*" checked="checked" type="radio" onchange="getDayWeek(id)">
                             Every Day</label><br>
-                            <label class="radio" for="everyNonWeekenDays"><input id="everyNonWeekenDays" name="weekdays" value="1-5" type="radio">
+                            <label class="radio" for="everyNonWeekenDays"><input id="everyNonWeekenDays" name="weekdays" value="1-5" type="radio" onchange="getDayWeek(id)">
                             Monday - Friday</label><br>
-                            <label class="radio" for="everyWeekenDays"><input id="everyWeekenDays" name="weekdays" value="0,6" type="radio">
+                            <label class="radio" for="everyWeekenDays"><input id="everyWeekenDays" name="weekdays" value="0,6" type="radio" onchange="getDayWeek(id)">
                             Saturday - Sunday</label><br>
                             <table>
                         <tr>
                             <td>
-                                <input type="radio" value="select" name="minutes">
+                                Other:
+                                <!-- <input type="radio" value="select" name="minutes"> -->
                             </td>
                             <td>
-                                <select multiple size="10" name="selectWeekdays[]">
+                                <select multiple size="10" name="selectWeekdays[]" id="dayWeek" onchange="otherDayWeek(id)" >
                                     <option value="0">Sun</option>
                                     <option value="1">Mon</option>
                                     <option value="2">Tue</option>
@@ -301,9 +319,12 @@
                </td>
             </tr>
         </table>
-                
+        <button type="submit" class="btn btn-primary" id="generate">Generate</button>
+        <div id="res">
+
+        </div>    
         
         <script href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-
+        <script src="main.js"></script>
 </body>
 </html>
